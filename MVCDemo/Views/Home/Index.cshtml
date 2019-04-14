@@ -4,7 +4,11 @@
 
 <h2>Country List</h2>
 <ul>
-    @foreach(string countryName in ViewBag.CountryList) {
+    @* Both will not check for compile time error if we mis-spell *@
+    @* Difference Between ViewData and ViewBag 
+       Just change Spelling of Properties and we will not get Compiler error in 
+        VIEWBAG and VIEWDATA *@
+    @foreach(string countryName in (List<string>)ViewData["CountryList"]) {
         <li>@countryName</li>
     }
 </ul>

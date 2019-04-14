@@ -12,7 +12,7 @@ namespace MVCDemo.Controllers
         {
             //Store the list of country in Dynamic Feature which is introduced in C# 4.0 Version
             //Dynamic Properties CountryList
-            ViewBag.CountryList =new List<string>()
+            ViewData["CountryList"] =new List<string>()
             {
                 "India","UK","USA","Canada"
             };
