@@ -8,13 +8,14 @@ namespace MVCDemo.Controllers
 {
     public class HomeController : Controller
     {
-        public List<string> Index()
+        public ActionResult Index()
         {
-            return new List<string>()
+            ViewBag.CountryList =new List<string>()
             {
                 "India","UK","USA","Canada"
             };
 
+            return View();
             //OUTPUT from MVCDemo/Home/Index
             //In this scenerio If we see the output
             //System.Collections.Generic.List`1[System.String]
