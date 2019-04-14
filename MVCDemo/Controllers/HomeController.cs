@@ -10,17 +10,14 @@ namespace MVCDemo.Controllers
     {
         public ActionResult Index()
         {
+            //Store the list of country in Dynamic Feature which is introduced in C# 4.0 Version
+            //Dynamic Properties CountryList
             ViewBag.CountryList =new List<string>()
             {
                 "India","UK","USA","Canada"
             };
 
             return View();
-            //OUTPUT from MVCDemo/Home/Index
-            //In this scenerio If we see the output
-            //System.Collections.Generic.List`1[System.String]
-
-            //So we need to traverse and for that we need to add View
         }
 
         public string GetResult() {
