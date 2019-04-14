@@ -8,18 +8,18 @@ namespace MVCDemo.Controllers
 {
     public class HomeController : Controller
     {
-        //public string Index(string id)
-        //{
-        //    //return View();
-        //    //return "Hello MVC";
-        //    string queryString = Request.QueryString.Get("name");
-        //    return "ID = "+id + " Query String = "+ queryString;
-        //}
-
-
-        public string Index(string id,string name)
+        public List<string> Index()
         {
-            return "ID = " + id + " Name = " + name;
+            return new List<string>()
+            {
+                "India","UK","USA","Canada"
+            };
+
+            //OUTPUT from MVCDemo/Home/Index
+            //In this scenerio If we see the output
+            //System.Collections.Generic.List`1[System.String]
+
+            //So we need to traverse and for that we need to add View
         }
 
         public string GetResult() {
