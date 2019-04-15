@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVCDemo.Models;
 
-
+//Controller Is Responsible to Handle The  REQUEST
 //CONTROLLER Get the data from Model and Provide to the View
 namespace MVCDemo.Controllers
 {
