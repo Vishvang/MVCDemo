@@ -11,8 +11,14 @@ namespace MVCDemo.Controllers
 {
     public class EmployeeController : Controller
     {
+        public ActionResult Index()
+        {
+            EmployeeContext employeeContext = new EmployeeContext();
+            List<EmployeeViewModel> employeeListViewModel = employeeContext.Employee.ToList();
+            return View(employeeListViewModel);
+        }
         // GET: Employee
-        public ActionResult GetDetails(int Id)
+        public ActionResult GetDetails(int id)
         {
             //Employee employee = 
             //    new Employee() {
@@ -20,8 +26,8 @@ namespace MVCDemo.Controllers
             //    };
 
             EmployeeContext empContext = new EmployeeContext();
-            Employee employee = empContext.Employees.Single(emp => emp.EmployeeId == Id);
-            return View(employee);
+            EmployeeViewModel employeeViewModel = empContext.Employee.Single(emp => emp.EmployeeId == id);
+            return View(employeeViewModel);
         }
     }
 }
