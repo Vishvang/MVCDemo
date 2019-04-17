@@ -12,13 +12,15 @@ namespace MVCDemo.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
-        public ActionResult GetDetails()
+        public ActionResult GetDetails(int Id)
         {
-            Employee employee = 
-                new Employee() {
-                    EmployeeId = 101, Name = "David", City = "Orlando", Gender = "Male"
-                };
-            
+            //Employee employee = 
+            //    new Employee() {
+            //        EmployeeId = 101, Name = "David", City = "Orlando", Gender = "Male"
+            //    };
+
+            EmployeeContext empContext = new EmployeeContext();
+            Employee employee = empContext.Employees.Single(emp => emp.EmployeeId == Id);
             return View(employee);
         }
     }
