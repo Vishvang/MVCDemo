@@ -5,10 +5,10 @@
 @model MVCDemo.Models.EmployeeViewModel
 
 @{
-    ViewBag.Title = "GetDetails";
+    ViewBag.Title = "Details of Employee";
 }
 
-<h2>Employee Details</h2>
+<h2>Employee @Model.Name </h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -41,6 +41,11 @@
             @Html.ActionLink("Edit", "Edit", new { id= Model.EmployeeId }) |
             @Html.ActionLink("Details", "Details", new { id= Model.EmployeeId }) |
             @Html.ActionLink("Delete", "Delete", new { id= Model.EmployeeId })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Back To List", "Index", "Employee", new { departmentId = Model.DepartmentId}, null)
         </td>
     </tr>
 </table>

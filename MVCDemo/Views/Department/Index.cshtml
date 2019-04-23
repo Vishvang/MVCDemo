@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVCDemo.Models.DepartmentViewModel>
+
+@using MVCDemo.Models
+
+@{
+    ViewBag.Title = "Department List";
+}
+
+<h2>Department List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (DepartmentViewModel department in @Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(department.DepartmentName, "Index", "Employee", new { departmentId = department.DepartmentId },null)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

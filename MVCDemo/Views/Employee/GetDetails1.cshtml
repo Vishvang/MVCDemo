@@ -1,0 +1,29 @@
+﻿@model MVCDemo.Models.EmployeeViewModel
+
+@using MVCDemo.Models
+
+@{
+    ViewBag.Title = "GetDetails1";
+}
+
+<h2>GetDetails1</h2>
+
+@*  @{ EmployeeViewModel employeeViewModel = (EmployeeViewModel)ViewBag.employeeListViewModel; } *@
+
+
+@foreach (EmployeeViewModel model in ViewBag.employeeListViewModel)
+{
+    <P>Hi</P>
+}
+
+@{ int i = ViewBag.employeeListViewModel.Count; }
+
+@for (int j = 0; j < i; j++)
+{
+
+    <p>@ViewBag.employeeListViewModel[j].Name</p>
+    <p>@ViewBag.employeeListViewModel[j].Gender</p>
+}
+
+
+

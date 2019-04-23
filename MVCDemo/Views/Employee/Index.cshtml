@@ -1,13 +1,19 @@
 ﻿@model IEnumerable<MVCDemo.Models.EmployeeViewModel>
 
+
+@* WE ARE USING THIS using syntax as we want to declare oblect of type Employee Class in *@
+@* @foreach method. We can use var too to declare and to run but this approach is more relavant to strict type. *@
+
+@using MVCDemo.Models;
+
 @{
-    ViewBag.Title = "Employee Details";
+    ViewBag.Title = "All Employee Details";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create","Employee")
 </p>
 <table class="table">
     <tr>
@@ -18,28 +24,31 @@
             @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DepartmentId)
             @Html.DisplayNameFor(model => model.Gender)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
-        </td>
-    </tr>
-}
-
+    @foreach (EmployeeViewModel employee in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(employee.Name, "GetDetails", new { id = employee.EmployeeId })
+                @*@Html.DisplayFor(modelItem => employee.Name)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => employee.City)
+            <td>
+                @Html.DisplayFor(modelItem => employee.Gender)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = employee.EmployeeId }) |
+                @*@Html.ActionLink("Details", "GetDetails", new { id= employee.EmployeeId }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = employee.EmployeeId })
+            </td>
+        </tr>
+    }
 </table>
+
+@Html.ActionLink("Back To Department List", "Index", "Department")
